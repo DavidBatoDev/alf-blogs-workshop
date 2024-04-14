@@ -1,10 +1,20 @@
 import React from 'react'
 import '../styles/Searchbar.css'
+import {IoSearchOutline} from 'react-icons/io5'
 
-const Searchbar = () => {
+const Searchbar = ({searchText, setSearchText, handleCardSearch}) => {
   return (
     <div className='search-bar'>
-      <input type="text" className='search-input'/>
+      <div className='search-icon-container'>
+        <IoSearchOutline size={28} color='#b6b6b6' />
+      </div>
+      <input 
+      type="text" 
+      value={searchText}
+      onChange={e => setSearchText(e.target.value)}
+      className='search-input' 
+      placeholder='Seach Article'/>
+
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import "../styles/Hero.css"
 import Button from "./Button"
+import Blur from "./Blur"
 
 const Hero = () => {
   return (
