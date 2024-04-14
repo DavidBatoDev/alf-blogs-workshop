@@ -1,0 +1,35 @@
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    width: 25%;
+  }
+  
+  .search-input {
+    padding: 1rem 1.5rem;
+  }
+  
+  .search-icon-container {
+    padding-left: 1rem;
+  }
+  
+  .search-input {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    font-family: "Roboto";
+  }
+  
+  .search-input::placeholder {
+    color: var(--subtle-text-color);
+    font-size: 1rem;
+    font-family: "Roboto";
+  }

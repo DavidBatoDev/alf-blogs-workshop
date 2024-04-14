@@ -1,0 +1,87 @@
+.regular-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  
+  .regular-card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .regular-card-img-container {
+    position: relative;
+    height: 50%;
+    max-height: 50%;
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+  }
+  
+  .regular-card-img-container > img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .regular-card-content {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  
+  .regular-card-date {
+    position: relative;
+    text-transform: uppercase;
+    padding: 0.425rem;
+    color: #b6b6b6;
+    width: fit-content;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: "Roboto";
+  }
+  
+  .regular-card-date::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .regular-card-title {
+    color: var(--primary-text-color);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 175%;
+    max-height: 1lh;
+    font-size: 1.15rem;
+  }
+  
+  .regular-card-description {
+    color: var(--subtle-text-color);
+    font-family: "Roboto";
+    font-size: 1rem;
+    line-height: 175%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 2lh;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .regular-card {
+      max-height: 320px;
+    }
+  }
