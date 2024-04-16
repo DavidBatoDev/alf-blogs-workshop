@@ -1,21 +1,31 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import Hero from './Hero'
-import ArticleSection from './ArticleSection'
-import CardsContainer from './CardsContainer'
-import CtaSection from './CtaSection'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from '../routes/Home'
+import Root from '../routes/Root'
+import Article from '../routes/Article'
+import { articleLoader } from './ArticleSection'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: articleLoader
+      },
+      {
+        path: "/article",
+        element: <Article />
+      }
+    ]
+  }
+])
 
 function App() {
-  return (
-    <div className='wrapper'>
-      <Navbar />
-      <Hero />
-      <ArticleSection />
-      <CtaSection />
-      <Footer />
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
+
 
 export default App

@@ -6,29 +6,30 @@ import Searchbar from "./Searchbar";
 import RegularCard from "./RegularCard";
 import { API_URL } from "../constants";
 import Blur from "./Blur";
+import {useLoaderData} from 'react-router-dom'
 
-const mockData = [
-  {_id: 1, title: "AASHIDOASIODASHO ASDSA", date: Date.now(), cover_photo: "/preview.png", content: "dasdasd"},
-  {_id: 2, title: "F DSGSDDSF", date: Date.now(), cover_photo: "/preview.png", content: "Conasdsafdastent"},
-  {_id: 3, title: "EFEDFG DGFD GFD", date: Date.now(), cover_photo: "/preview.png", content: "Consdfdsfsdtent"},
-  {_id: 4, title: "SFSDGG FGFGF", date: Date.now(), cover_photo: "/preview.png", content: "sdfsdf"},
-  {_id: 5, title: "SDFGDSG FSDH FDH", date: Date.now(), cover_photo: "/preview.png", content: "fsdsdfsd"},
-];
+export const articleLoader = async () => {
+    try {
+      const response = await fetch(`${API_URL}/posts`)
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+    return null
+}
 
 const ArticleSection = () => {
-
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [searchResult, setSearchResult] = useState([]);
-  const [cards, setCards] = useState(mockData);
-
+  const cards = useLoaderData()
   const isCardMatch = (val, card) => {
     const titleMatch = card.title.toLowerCase().includes(val.toLowerCase().trim());
     return (val.length != 0 && titleMatch) || val.length == 0;
   };
 
   const handleCardSearch = (value) => {
-    const cardsMatched = []
-
+    const cardsMatched = [];
     setSearchText(value);
     cards.forEach((card) => {
       if (isCardMatch(value, card)) {
@@ -38,23 +39,6 @@ const ArticleSection = () => {
 
     setSearchResult(cardsMatched);
   };
-
-  useEffect(() => {
-    handleCardSearch(searchText);
-    
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_URL}/posts`)
-        const data = await response.json();
-        setCards(data);
-      } catch (error) {
-        console.error(error);
-      } 
-    };
-
-    fetchData();
-
-  }, []);
 
   return (
     <div id="articleSection">
