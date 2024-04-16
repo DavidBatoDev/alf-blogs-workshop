@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/Searchbar.css'
 import {IoSearchOutline} from 'react-icons/io5'
 
-const Searchbar = ({searchText, setSearchText, handleCardSearch}) => {
+const Searchbar = ({searchText, setSearchText}) => {
   return (
     <div className='search-bar'>
       <div className='search-icon-container'>

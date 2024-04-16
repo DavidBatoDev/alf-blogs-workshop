@@ -1,22 +1,19 @@
-// imports
 const express = require('express')
-const { 
-    getAllPosts,
+const upload = require('../middleware/uploadMiddleware')
+const router = express.Router()
+
+const {
     createPost,
+    getAllPosts,
     showPost,
     updatePost,
     deletePost
 } = require('../controllers/postController')
-const upload = require('../middleware/uploadMiddleware')
 
-// constants
-const router = express.Router()
+router.get('/', getAllPosts);
+router.get('/:id', showPost);
+router.post('/', upload.single('cover_photo'), createPost);
+router.put('/:id', upload.single('cover_photo'), updatePost); // patch can also be used, depends on updating is handled
+router.delete('/:id', deletePost);
 
-// routes
-router.get('/', getAllPosts)
-router.post('/', upload.single('cover_photo'), createPost)
-router.put('/:id', upload.single('cover_photo'), updatePost)
-router.get('/:id', showPost)
-router.delete('/:id', deletePost)
-
-module.exports = router
+module.exports = router;

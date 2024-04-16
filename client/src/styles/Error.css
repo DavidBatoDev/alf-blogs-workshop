@@ -1,0 +1,24 @@
+
+.error-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: var(--landing-padding);
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    gap: 2rem;
+  }
+  
+  .error-page-status {
+    font-size: 10rem;
+    font-weight: bold;
+  }
+  
+  .error-page-status-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--subtle-text-color);
+  }
+  

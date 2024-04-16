@@ -1,18 +1,21 @@
-import { formatDate } from "../../utils";
-import "../styles/RegularCard.css"
+import React from "react";
+import { Link } from "react-router-dom";
 
-const RegularCard = ( {_id, title, date, cover_photo, content} ) => {
+import "../styles/RegularCard.css";
+import { formatDate } from "../utils";
+
+const RegularCard = ({ _id, date, title, cover_photo, content }) => {
   return (
-    <a href="#" className="regular-card">
+    <Link className="regular-card" to={`article/${_id}`}>
       <div className="regular-card-img-container">
-        <img src={cover_photo} alt="This is the article's cover photo" />
+        <img src={cover_photo} alt="The cover photo of the card" />
       </div>
       <div className="regular-card-content">
-        <p className="regular-card-date">{ formatDate(new Date(date)) }</p>
-        <p className="regular-card-title">{ title }Yow</p>
-        <p className="regular-card-description">{ content }</p>
+        <p className="regular-card-date">{formatDate(new Date(date))}</p>
+        <p className="regular-card-title">{title}</p>
+        <p className="regular-card-description">{content}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 

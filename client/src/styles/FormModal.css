@@ -1,0 +1,165 @@
+.form-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    transition: all 0.2s ease;
+    color: black;
+  }
+  
+  .form-modal.hidden {
+    opacity: 0;
+    top: -100%;
+    bottom: 100%;
+    z-index: -999;
+    pointer-events: none;
+  }
+  .form-modal .submit {
+    justify-self: center;
+    width: 12.5rem;
+  }
+  
+  .form-modal__overlay {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.5rem);
+  }
+  
+  .form-modal__cover-photo {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid gray;
+  }
+  
+  .form-modal__cover-photo img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .form-modal__content {
+    position: relative;
+    z-index: 9999;
+    width: 75%;
+    height: 90%;
+    overflow-y: auto;
+    max-width: 50rem;
+    margin-inline: 1rem;
+    border-radius: 0.75rem;
+    padding: 1.5rem 2.75rem;
+    padding-bottom: 1rem;
+    background-color: white;
+    display: grid;
+    text-align: left;
+    gap: 1rem;
+    box-shadow: 0px 2px 20px -1px rgb(100, 94, 94);
+  }
+  
+  .form-modal__top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .form-modal__content::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+  }
+  
+  .form-modal__content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+  }
+  
+  .form-modal__content::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .form-modal__title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .form-modal__field {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .form-modal__field label {
+    font-size: 1.125rem;
+    font-weight: normal;
+  }
+  .form-modal__field input {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  .form-modal__field input::placeholder {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  .form-modal__field input.error {
+    border: 1px solid var(--accent-text-color);
+  }
+  
+  .form-modal__buttons {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-modal__error {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--accent-text-color);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .form-modal__content {
+      padding: 1rem 1.5rem;
+    }
+  
+    .form-modal__content {
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .form-modal__content::-webkit-scrollbar,
+    .form-modal__content::-webkit-scrollbar-thumb,
+    .form-modal__content::-webkit-scrollbar-track {
+      border-radius: 0px;
+    }
+  }
+  
+  @media screen and (max-width: 425px) {
+    .form-modal__buttons {
+      display: grid;
+      justify-content: stretch;
+    }
+  
+    .form-modal__buttons button {
+      width: 100%;
+    }
+  }
